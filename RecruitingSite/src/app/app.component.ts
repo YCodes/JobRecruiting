@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { VerifyLoginService } from './verify-login/verify-login.service'
+import { LoginService} from './login/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,10 @@ import { VerifyLoginService } from './verify-login/verify-login.service'
 })
 export class AppComponent {
   title = 'Job Recruiting Site';
-  constructor(private myservice: VerifyLoginService) { }
-  getuser() {
-    console.log(this.myservice.getData());
+  private data;
+  constructor(public loginserv: LoginService, private router: Router) { 
+    this.router.navigate(['starter']);
+   
   }
 
 }

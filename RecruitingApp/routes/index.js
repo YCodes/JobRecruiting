@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
   res.render('index', { title: 'Job Recruiting Site - From Angular' });
 });
 
-router.get('/logindetails', function(req, res, next) {
+router.get('/verifylogin', function(req, res, next) {
   data = [{username:"admin", password:"admin"}];
   res.send(data);
 });

@@ -1,0 +1,61 @@
+<div class="front-page">
+  <h1></h1>
+  <!-- <p><img src="../public/images/recruitment.jpg" height="400px" width="600px" alt="job_offer"></p> -->
+    <br><br> 
+    <div class="container">
+      
+            <form #registerForm="ngForm" class="form-register" (submit)="logForm(registerForm.value)">
+              <h2 class="form-register-heading">Register New Account</h2>
+              <p class="register_form_title">Account Credentials</p>
+              <input type="text" style="width:45%" name="user" placeholder="Username" ngModel>
+              <input type="password" style="width:45%" name="pass" placeholder="Password" ngModel>
+             
+              <p class="register_form_title">General Information</p>
+              <input type="text" name="first_name" placeholder="First Name" ngModel>
+              <input type="text" name="last_name" placeholder="Last Name" ngModel>
+              <input type="text" name="phone" placeholder="Phone Number" ngModel>
+              <input type="text" name="dob" placeholder="Date of Birth" ngModel>
+              <input type="text" name="career_level" placeholder="Current Career Level" ngModel>
+              <input type="text" name="featured_skills" placeholder="Featured Skills" ngModel>              
+              <input type="text" name="email" placeholder="Email Address" ngModel>
+              <input type="text" name="language" placeholder="Language" ngModel>
+              
+              <p class="register_form_title">Address</p>
+              <fieldset ngModelGroup="address">
+              <input type="text" style="width:45%" name="country" placeholder="Country" ngModel>
+              <input type="text" style="width:45%" name="street" placeholder="Street" ngModel>
+              <input type="text" style="width:45%" name="state" placeholder="State" ngModel>
+              <input type="text" style="width:45%" name="zipcode" placeholder="ZipCode" ngModel>
+              </fieldset>
+      
+              <p class="register_form_title">Professional Experience</p>
+              <fieldset ngModelGroup="professional_experience">
+              <input type="text" style="width:45%" name="prof_title" placeholder="Professional Title" ngModel>
+              <input type="text" style="width:45%" name="prof_company" placeholder="Company Name" ngModel>
+              <input type="text" style="width:45%" name="prof_location" placeholder="Location" ngModel>
+              <input type="text" style="width:45%" name="prof_start" placeholder="Start Date" ngModel>
+              <input type="text" style="width:45%" name="prof_end" placeholder="End Date" ngModel>
+              <textarea rows="4" cols="86" name="prof_description" placeholder="Description" ngModel></textarea> 
+              </fieldset>
+              
+              <fieldset ngModelGroup="links">
+              <input type="url" name="links_linkedin" placeholder="LinkedIn Profile" ngModel>
+              <input type="url" name="links_github" placeholder="GitHub Profile" ngModel>
+              <input type="url" name="links_other" placeholder="Other URL" ngModel>
+              </fieldset>
+                             
+              <p class="register_form_title">Education</p>
+              <fieldset ngModelGroup="education">
+              <input type="text" style="width:45%" name="edu_school" placeholder="School Name" ngModel>
+              <input type="text" style="width:45%" name="edu_country" placeholder="Country" ngModel>
+              <input type="text" style="width:45%" name="edu_field" placeholder="Feild" ngModel>
+              <input type="text" style="width:45%" name="edu_degree" placeholder="Degree" ngModel>
+              <input type="text" style="width:45%" name="edu_year" placeholder="Year" ngModel>
+              </fieldset>
+              
+              <!-- <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="doRegister()">Register</button> -->
+               <input type="submit" name="login" class="btn btn-lg btn-primary btn-block" value="Register">
+            </form>
+      
+          </div> <!-- /container -->
+</div>
