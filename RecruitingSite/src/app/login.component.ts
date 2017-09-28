@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService} from './login/login.service';
+import { Component } from '@angular/core';
+import { LoginService } from './login/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from './model/user';
@@ -9,28 +9,26 @@ import { User } from './model/user';
   templateUrl: './app.login.html',
   styleUrls: ['./app.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   private user;
   constructor(private router: Router, public loginserv: LoginService) { }
 
-  ngOnInit() {
+
+
+  logSigninForm(value: any) {
+    this.user = new User("0", value.username, value.password);
+
+    this.loginserv.signin(this.user).subscribe(
+      data => {
+        this.router.navigate(['welcome']);
+      },
+      error => {
+        console.log(error)
+      }
+    );
+    this.loginserv.getJobs()
   }
 
-  // doLogin(){
-  //     // alert("Login Clicked...!");
-  //     //console.log(this.loginserv.verifyLogin());
-  //     this.router.navigateByUrl('/joblist');
-  // }
-
-  logSigninForm(value: any){
-    this.user = new User("11", value.username, value.password);
-    if(value.username==="Yaman" && value.password==="Yaman"){
-      this.router.navigateByUrl('/welcome');
-    } else {
-      alert("Incorrect Credentials...!");
-    }
-    // console.log(this.user.getUser());
-  }
 
 }

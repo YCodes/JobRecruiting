@@ -7,17 +7,17 @@
             <form #registerForm="ngForm" class="form-register" (submit)="logForm(registerForm.value)">
               <h2 class="form-register-heading">Register New Account</h2>
               <p class="register_form_title">Account Credentials</p>
-              <input type="text" style="width:45%" name="user" placeholder="Username" ngModel>
-              <input type="password" style="width:45%" name="pass" placeholder="Password" ngModel>
+              <input type="text" style="width:45%" name="user" required placeholder="Username" ngModel>
+              <input type="password" style="width:45%" name="pass" required placeholder="Password" ngModel>
              
               <p class="register_form_title">General Information</p>
-              <input type="text" name="first_name" placeholder="First Name" ngModel>
-              <input type="text" name="last_name" placeholder="Last Name" ngModel>
-              <input type="text" name="phone" placeholder="Phone Number" ngModel>
-              <input type="text" name="dob" placeholder="Date of Birth" ngModel>
+              <input type="text" name="first_name" placeholder="First Name" required ngModel>
+              <input type="text" name="last_name" placeholder="Last Name" required ngModel>
+              <input type="text" name="phone" placeholder="Phone Number" required ngModel>
+              <input type="date" name="dob" placeholder="Date of Birth" required ngModel>
               <input type="text" name="career_level" placeholder="Current Career Level" ngModel>
-              <input type="text" name="featured_skills" placeholder="Featured Skills" ngModel>              
-              <input type="text" name="email" placeholder="Email Address" ngModel>
+              <input type="text" name="featured_skills" placeholder="Featured Skills" ng-model="required">              
+              <input type="text" name="email" placeholder="Email Address"required ngModel>
               <input type="text" name="language" placeholder="Language" ngModel>
               
               <p class="register_form_title">Address</p>
@@ -33,8 +33,8 @@
               <input type="text" style="width:45%" name="prof_title" placeholder="Professional Title" ngModel>
               <input type="text" style="width:45%" name="prof_company" placeholder="Company Name" ngModel>
               <input type="text" style="width:45%" name="prof_location" placeholder="Location" ngModel>
-              <input type="text" style="width:45%" name="prof_start" placeholder="Start Date" ngModel>
-              <input type="text" style="width:45%" name="prof_end" placeholder="End Date" ngModel>
+              <input type="date" style="width:45%" name="prof_start" placeholder="Start Date" ngModel>
+              <input type="date" style="width:45%" name="prof_end" placeholder="End Date" ngModel>
               <textarea rows="4" cols="86" name="prof_description" placeholder="Description" ngModel></textarea> 
               </fieldset>
               

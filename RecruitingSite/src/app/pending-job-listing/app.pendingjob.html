@@ -3,11 +3,12 @@
         <a [routerLink]="['/joblist']" >Job Listing</a>
         <a [routerLink]="['/pending']" >Pending Job Application</a>
         <a [routerLink]="['/profile']" >Profile Page</a>   
-        </div>   
+ </div>   
       </nav>
 <div class="joblist container">
   <div class="row">
     <div class="col-lg-12 col-md-8 col-sm-9 col-xs-12">
+        <ng-container *ngFor="let record of data">
         <article>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
@@ -16,40 +17,20 @@
                     </figure>
                 </div>
                 <div class="col-sm-6 col-md-8">
-                    <h4>Title:  PHP/Java/UX Developer</h4>
-                    <p>Job Description: you will be responsible for the development and augmentation of the software components which will be used to solve analytical problems of large enterprises. These components would implement complex algorithms while being highly scalable in a multi data source environment.</p>
+                    <h4>Title: {{record.title}}</h4>
+                    <p>Job Description: {{record.jobdescription}}</p>
                     <section>
-                        <i class="glyphicon glyphicon-globe"></i>Location: New York, NY
-                        <i class="glyphicon glyphicon-tasks"></i>Skills: Java/Hadoop/Big Data							
-                        <i class="glyphicon glyphicon-user"></i>Experience Required: 3+ Years
-                        <p><i class="glyphicon glyphicon-calendar"></i>End Date: 2017/9/28
-                        <i class="glyphicon glyphicon-time"></i>Job Type: Full Time</p>
+                        <i class="glyphicon glyphicon-globe"></i>Location: {{record.location}}
+                        <i class="glyphicon glyphicon-tasks"></i>Skills: {{record.skills}}							
+                        <i class="glyphicon glyphicon-user"></i>Experience Required: {{record.experiencerequired}}
+                        <p><i class="glyphicon glyphicon-calendar"></i>End Date: {{record.enddate}}
+                        <i class="glyphicon glyphicon-time"></i>Job Type: {{record.type}}</p>
+                        <a href="#" class="btn btn-default btn-sm pull-right orange">Pending</a>
                     </section>
                 </div>
             </div>
       </article>
-      
-      <article>
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <figure>
-                      <img src="../../assets/images/rsz_job_vacancies.png">
-                    </figure>
-                </div>
-                <div class="col-sm-6 col-md-8">
-                    <h4>Title:  PHP/Java/UX Developer</h4>
-                    <p>Job Description: you will be responsible for the development and augmentation of the software components which will be used to solve analytical problems of large enterprises. These components would implement complex algorithms while being highly scalable in a multi data source environment.</p>
-                    <section>
-                        <i class="glyphicon glyphicon-folder-open"></i>Location: New York, NY
-                        <i class="glyphicon glyphicon-user"></i>Skills: Java/Hadoop/Big Data							
-                        <i class="glyphicon glyphicon-user"></i>Experience Required: 3+ Years
-                        <i class="glyphicon glyphicon-calendar"></i>End Date: 2017/9/28
-                        <i class="glyphicon glyphicon-eye-open"></i>Job Type: Full Time
-                    </section>
-                </div>
-            </div>
-        </article>
-        
+      </ng-container>
     </div>
   </div>
 </div>

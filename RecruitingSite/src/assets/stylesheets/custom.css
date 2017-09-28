@@ -121,3 +121,13 @@ p.black {
   color: white;
   background-color: green;
 }
+
+/* Pending Job Page */
+.joblist a.btn-default.orange{
+  background-color: orangered;
+}
+
+:required  {  
+  background: url(https://cdn0.iconfinder.com/data/icons/fugue/icon/asterisk-small.png) no-repeat;
+  background-position:right top;
+ }

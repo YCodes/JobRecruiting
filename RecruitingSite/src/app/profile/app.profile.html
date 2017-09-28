@@ -2,7 +2,7 @@
 		<div class="container">
 		<a [routerLink]="['/joblist']" >Job Listing</a>
 		<a [routerLink]="['/pending']" >Pending Job Application</a>
-		<a [routerLink]="['/profile']" >Profile Page</a>   
+        <a [routerLink]="['/profile']" >Profile Page</a> 
         </div>   
 </nav>
 <div class="profile container">
@@ -12,6 +12,10 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-4">
                             <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                            <div class="btn-group" style="margin-top:8px;">
+                                <button type="button" class="btn btn-primary" (click)="doLogout()">
+                                        Logout</button>
+                            </div>
                         </div>
                         <div class="profile-page col-sm-6 col-md-8">
                             <h4>
@@ -21,16 +25,16 @@
                             <p>
                                 <i class="glyphicon glyphicon-envelope"></i>{{senddata.email}}
                                 <br />
-                                <i class="glyphicon glyphicon-globe"></i><a href="{{senddata.links.links_other}}">{{senddata.links.links_other}}</a>
+                                <i class="glyphicon glyphicon-globe"></i><a href="{{senddata.links[0].links_other}}">{{senddata.links[0].links_other}}</a>
                                 <br />
                                 <i class="glyphicon glyphicon-gift"></i>{{senddata.dateofbirth}}</p>
                             <!-- Split button -->
                             <div class="btn-group">
-                                <a href="{{senddata.links.links_linkedin}}" target="_blank"><button type="button" class="btn btn-primary">
+                                <a href="{{senddata.links[0].links_linkedin}}" target="_blank"><button type="button" class="btn btn-primary">
                                         LinkedIn</button></a>
-                                <a href="{{senddata.links.links_github}}" target="_blank"><button type="button" class="btn btn-primary">
+                                <a href="{{senddata.links[0].links_github}}" target="_blank"><button type="button" class="btn btn-primary">
                                         GitHub</button></a>
-                                <a href="{{senddata.links.links_other}}" target="_blank"><button type="button" class="btn btn-primary">
+                                <a href="{{senddata.links[0].links_other}}" target="_blank"><button type="button" class="btn btn-primary">
                                         Own</button></a>
                             </div>
                             <div class="profile-details">
@@ -40,20 +44,19 @@
                                 <p>Featured Skills: {{senddata.featuredskills}}</p>
                                 <br>
                                 <p class="black">Education:</p>
-                                <p>Country: {{senddata.education.edu_country}}</p>
-                                <p>Dergee: {{senddata.education.edu_degree}}</p>
-                                <p>Field: {{senddata.education.edu_field}}</p>
-                                <p>School: {{senddata.education.edu_school}}</p>
-                                <p>Year: {{senddata.education.edu_year}}</p>
+                                <p>Country: {{senddata.education[0].edu_country}}</p>
+                                <p>Dergee: {{senddata.education[0].edu_degree}}</p>
+                                <p>Field: {{senddata.education[0].edu_field}}</p>
+                                <p>School: {{senddata.education[0].edu_school}}</p>
+                                <p>Year: {{senddata.education[0].edu_year}}</p>
                                 <br>
                                 <p class="black">Profesional Experience</p>
-                                <p>Title: {{senddata.proffesionalexperience.prof_title}}</p>
-                                <p>Company: {{senddata.proffesionalexperience.prof_company}}</p>
-                                <p>Description: {{senddata.proffesionalexperience.prof_description}}</p>
-                                <p>Location: {{senddata.proffesionalexperience.prof_location}}</p>
-                                <p>Start Date: {{senddata.proffesionalexperience.prof_start}}</p>                                
-                                <p>End Date: {{senddata.proffesionalexperience.prof_end}}</p>
-                                <p>Jobs Applied:</p>
+                                <p>Title: {{senddata.proffesionalexperience[0].prof_title}}</p>
+                                <p>Company: {{senddata.proffesionalexperience[0].prof_company}}</p>
+                                <p>Description: {{senddata.proffesionalexperience[0].prof_description}}</p>
+                                <p>Location: {{senddata.proffesionalexperience[0].prof_location}}</p>
+                                <p>Start Date: {{senddata.proffesionalexperience[0].prof_start}}</p>                                
+                                <p>End Date: {{senddata.proffesionalexperience[0].prof_end}}</p>
                             </div>
                         </div>
                     </div>

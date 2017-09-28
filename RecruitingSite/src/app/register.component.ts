@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserProfile } from './model/userprofile';
-import {LoginService} from './login/login.service'
+import { User } from './model/user';
+import { LoginService } from './login/login.service'
 
 @Component({
   selector: 'app-register',
@@ -11,19 +12,26 @@ import {LoginService} from './login/login.service'
 export class RegisterComponent implements OnInit {
 
   private userprofile;
+  private userprofil1;
   private userdata;
-  constructor(private router: Router, public myservice : LoginService) { }
+  private user;
+  constructor(private router: Router, public loginservice: LoginService) { }
 
   ngOnInit() {
 
   }
 
-  logForm(value: any){
-    // console.log(value)
-    this.userprofile = new UserProfile(
-      "12",
+  logForm(value: any) {
+
+    // Retrieve the data from the view
+
+    this.user = new User(`${Math.random()}`,
       value.user,
-      value.pass,
+      value.pass)
+
+    this.userprofile = new UserProfile(
+      `${Math.random()}`,
+      value.user,
       value.email,
       value.first_name,
       value.last_name,
@@ -31,21 +39,25 @@ export class RegisterComponent implements OnInit {
       value.dob,
       value.address,
       value.career_level,
-      value.language,
-      value.education,
-      value.featured_skills,
-      value.links,
-      value.professional_experience
-
+      [value.featured_skills],
+      [value.language],
+      [value.links],
+      [value.education],
+      [value.professional_experience],
+      [{ jobid: '', applicationstatus: '' }]
     );
-    
-    this.userdata = this.userprofile.getUserProfile();
-    this.userdata = JSON.parse(this.userdata);
-    //console.log(this.userdata);
-    // console.log(this.userprofile.getUserProfile()); 
-    this.myservice.userprofile =  this.userdata ;
-    this.router.navigate(['/profile'] );
-     
+
+    this.loginservice.signup(this.user, this.userprofile).subscribe(
+      data => {
+        this.router.navigate(['/profile']);
+      },
+      error => {
+        //Use Error Friendly Page
+        //this.router.navigate(['/error',err]);
+        console.log(error)
+      }
+    );
+
   }
 
 }

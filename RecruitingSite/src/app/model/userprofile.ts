@@ -2,7 +2,6 @@ export class UserProfile {
     constructor(
         public id: string = "",
         public userName: string="",
-        public password: string="",
         public email: string="",
         public firstname: string="",
         public lastname: string="",
@@ -15,24 +14,24 @@ export class UserProfile {
             zipCode: string,
         },
         public currentcarrierlevel?: string,
+        public featuredskills?: string[],
         public languages?: string[],
+        public links?: string[],
         public education?: [{
-            country: string,
-            dirgee: string,            
-            field: string,            
             school: string,
+            country: string,
+            field: string, 
+            dirgee: string,            
             year: string,
         }],
-        public featuredskills?: string[],
-        public links?: string[],
-       
         public proffesionalexperience?: [{
-            company: string,
-            description: string,
-            enddate: Date,
-            location: string,
-            startdate: Date,            
             title: string,
+            company: string,
+            location: string,
+            startdate: Date, 
+            enddate: Date,  
+            description: string,         
+           
         }],
         public jobsapplied?: [{
             jobid: string,
